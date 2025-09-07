@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* 防止粒子溢出导致滚动条 */
+    background: linear-gradient(135deg, #FFD1DC 0%, #FFFFFF 100%); /* 粉色到白色的渐变 */
+    color: #333;
+    position: relative;
+}
+
+.particle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* 让粒子不影响鼠标事件 */
+    overflow: hidden;
+}
+
+.content {
+    text-align: center;
+    z-index: 10; /* 确保内容在粒子之上 */
+    padding: 20px;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 3em;
+    color: #E68FAC; /* 深一点的粉色 */
+    margin-bottom: 30px;
+    opacity: 0; /* 初始隐藏，通过JS或CSS动画显示 */
+    animation: fadeIn 2s forwards;
+    animation-delay: 0.5s;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.image-container {
+    margin: 30px auto;
+    width: 80%; /* 默认宽度 */
+    max-width: 400px; /* 最大宽度 */
+    border: 5px solid #FFC0CB; /* 浅粉色边框 */
+    border-radius: 15px; /* 圆角 */
+    box-shadow: 0 0 20px rgba(255,192,203,0.5); /* 粉色光晕效果 */
+    overflow: hidden;
+}
+
+.responsive-image {
+    width: 100%;
+    height: auto;
+    display: block; /* 移除图片底部的额外空间 */
+}
+
+p {
+    font-size: 1.5em;
+    color: #F06292; /* 稍深的粉色 */
+    margin-top: 30px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: 1.5s;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.2em;
+    }
+
+    .image-container {
+        width: 95%;
+        border-width: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+}
